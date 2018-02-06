@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import NewUserForm from './new-user-form';
 import Notes from './notes';
 
+import { Link } from 'react-router-dom';
+
 class LoginPage extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="LogIn">
 				<form>
-					<input type="text" placeholder="username"/>
-					<input type="text" placeholder="password"/>
+					<input type="text" placeholder="Username"/>
+					<input type="text" placeholder="Password"/>
 				</form>
-				<form action="#mainnotespageid">
+				<Link to="/notes">
 					<input type="submit" value="Log In"/>
-				</form>
-				<p>First time visitor? Create an account <a href="#userformid">here</a>.</p>
+				</Link>
+				<p>First time visitor? Create an account <Link to="/newuserform">here</Link>.</p>
 			</div>
 		)
 	}
