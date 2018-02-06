@@ -4,6 +4,7 @@ import './App.css';
 import LoginPage from '../components/login-page';
 import NewUserForm from '../components/new-user-form';
 import Notes from '../components/notes';
+import Note from '../components/note';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route path="/" component={LoginPage} exact/>
           <Route path="/newuserform" component={NewUserForm} exact/>
           <Route path="/notes" component={Notes} exact/>
+          <Route path="/notes/:id" component={Note}/>
       </div>
     );
   }
