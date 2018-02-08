@@ -7,15 +7,15 @@ const app = express();
 const notes = [
 	{
 		title: 'Tips for growing healthy hair',
-		body: 'Keep a clean scalp. Maintain protein and moisture balance in hair. Avoid direct heat.'
+		body: 'Keep a clean scalp, Maintain protein and moisture balance in hair, Avoid direct heat.'
 	},
 	{
 		title: 'Places I\'d like to visit', 
 		body: 'Monaco, Phucket, Lagos, Johannesburg, London, Paris.'
 	},
 	{
-		title: 'Grocery List'
-		body: 'Avocado. Tuna. Bread. Onion. Pineapples. Peaches. Brioche buns. Salmon. Salad greens. Bananas.'
+		title: 'Grocery List',
+		body: 'Avocado, Tuna, Bread, Onion, Pineapples, Peaches, Brioche buns, Salmon, Bananas.'
 	}
 ];
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import NewUserForm from './new-user-form';
 import Notes from './notes';
 

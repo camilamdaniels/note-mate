@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import UpdateNote from '../components/update-note';
 
-class Note extends Component {
-	render() {
-		return (
-			<div>
-				<h4>Note</h4>
-			</div>
-		)
-	}
+export default function Note(props) {
+	return (
+		<div>
+			<h4>{props.selected.title}</h4>
+			<div>{props.selected.body}</div>
+			<button onClick={() => props.handleDeleteNote()}>
+				{`Delete ${props.selected.title}`}
+			</button>
+			<UpdateNote note={props.selected}/>
+		</div>
+	);
 }
-export default Note;

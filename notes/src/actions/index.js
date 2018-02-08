@@ -37,7 +37,7 @@ export const deleteNote = (id) => {
 	const deleteNote = axios.delete(`${URL}/delete`, {data: { id }});
 	return dispatch => {
 		dispatch({type: DELETING_NOTE});
-		deletedNote
+		deleteNote
 			.then(({data}) => {
 				dispatch({type: DELETE_NOTE, payload: data});
 				dispatch({type: NOTE, payload: {} });
