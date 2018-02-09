@@ -4,7 +4,7 @@ const cors = require('cors');
 const port = 5000;
 const app = express();
 
-const notes = [
+let notes = [
 	{
 		id: 0,
 		title: 'Tips for growing healthy hair',
@@ -38,27 +38,24 @@ app.post('/api/notes/create', (req, res) => {
 	notes.push(myNote);
 	res.send(notes);
 	id++;
-	// notes.push(req.body);
-	// res.send(notes);
 });
 
 app.put('/api/notes/update', (req, res) => {
-	// ++id;
-	// const { title, body } = req.body;
-	// const updatedNote = { id, title, body };
-	// notes.push(updatedNote);
-	// res.send(notes);
+	const { title, body } = req.body;
+	const updatedNote = { title, body };
+	const newNotes = notes.map(note => {
+		return (note = updatedNote);
+	});
+	notes = newNotes;
+	res.send(notes);
 });
 
 app.delete('/api/notes/delete', (req, res) => {
-	// const id = req.body.id;
-	// const newNotes = notes.filter(note => {
-	// 	return note.id !== id;
-	// });
-	// notes = newNotes;
-	// res.send(notes);
-	const index = req.body.id;
-	notes.splice(index, 1);
+	const key = req.body.id;
+	const newNotes = notes.filter(note => {
+		return key !== note.id;
+	});
+	notes = newNotes;
 	res.send(notes);
 });
 
