@@ -41,13 +41,13 @@ app.post('/api/notes/create', (req, res) => {
 });
 
 app.put('/api/notes/update', (req, res) => {
-	const { title, body } = req.body;
-	const updatedNote = { title, body };
-	const newNotes = notes.map(note => {
-		return (note = updatedNote);
-	});
-	notes = newNotes;
-	res.send(notes);
+	// const { title, body } = req.body;
+	// const updatedNote = { title, body };
+	// const newNotes = notes.map(note => {
+	// 	return (note = updatedNote);
+	// });
+	// notes = newNotes;
+	// res.send(notes);
 });
 
 app.delete('/api/notes/delete', (req, res) => {
