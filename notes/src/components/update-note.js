@@ -19,7 +19,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { updateNote } from '../actions/index';
+import { updateNote, addNote } from '../actions/index';
 
 class UpdateNote extends Component {
 	state = {
@@ -33,8 +33,8 @@ class UpdateNote extends Component {
 
 	handleUpdateNote = _ => {
 		const { title, body } = this.state;
-		this.props.updateNote({title, body});
-		this.setState({title: this.props.note.title, body: this.props.note.body});
+		// this.props.updateNote({title, body});
+		this.props.addNote({title, body});
 	};
 
 	render() {
@@ -43,7 +43,7 @@ class UpdateNote extends Component {
 				<input 
 					type="text"
 					value={this.state.title}
-					placeholder="Update Title"
+					placeholder={this.state.title}
 					onChange={this.handleInputChange}
 					name="title"
 					/>
@@ -51,7 +51,7 @@ class UpdateNote extends Component {
 					<input 
 						type="text"
 						value={this.state.body}
-						placeholder="Update note body"
+						placeholder={this.state.body}
 						onChange={this.handleInputChange}
 						name="body"
 					/>
@@ -59,7 +59,9 @@ class UpdateNote extends Component {
 				<input 
 					type="submit"
 					value="Update Note"
-					onClick={() => this.handleUpdateNote()}
+					onClick={() => {
+						this.handleUpdateNote();
+					}}
 					/>
 			</form>
 		)
@@ -73,4 +75,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default withRouter(connect(mapStateToProps, { updateNote })(UpdateNote));
+export default withRouter(connect(mapStateToProps, { updateNote, addNote })(UpdateNote));

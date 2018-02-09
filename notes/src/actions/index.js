@@ -19,36 +19,36 @@ export const TOGGLE_UPDATE_NOTE = 'TOGGLE_UPDATE_NOTE';
 
 const URL = 'http://localhost:5000/api/notes';
 
-export const addNote = (note) => {
+export const addNote = note => {
 	const newNote = axios.post(`${URL}/create`, note);
 	return dispatch => {
 		dispatch({type: ADDING_NOTE});
 		newNote
-			.then(({data}) => {
-				dispatch({type: ADD_NOTE, payload: data});
+			.then(({ data }) => {
+				dispatch({ type: ADD_NOTE, payload: data });
 			})
 			.catch(err => {
-				dispatch({type: ERROR, payload: err});
+				dispatch({ type: ERROR, payload: err });
 			});
 	};
 };
 
-export const deleteNote = (id) => {
-	const deleteNote = axios.delete(`${URL}/delete`, {data: { id }});
+export const deleteNote = id => {
+	const deletedNote = axios.delete(`${URL}/delete`, {data: { id }});
 	return dispatch => {
-		dispatch({type: DELETING_NOTE});
-		deleteNote
-			.then(({data}) => {
-				dispatch({type: DELETE_NOTE, payload: data});
-				dispatch({type: NOTE, payload: {} });
+		dispatch({ type: DELETING_NOTE });
+		deletedNote
+			.then(({ data }) => {
+				dispatch({ type: DELETE_NOTE, payload: data });
+				dispatch({ type: NOTE, payload: {} });
 			})
 			.catch(err => {
-				dispatch({type: ERROR, payload: err});
+				dispatch({ type: ERROR, payload: err });
 			});
 	};
 };
 
-export const updateNote = (note) => {
+export const updateNote = note => {
 	return {
 		type: NOTE,
 		payload: note
@@ -58,12 +58,12 @@ export const updateNote = (note) => {
 export const fetchNotes = () => {
 	const notes = axios.get(`${URL}/get`);
 	return dispatch => {
-		dispatch({type: FETCHING_NOTES});
+		dispatch({ type: FETCHING_NOTES });
 		notes.then(response => {
-			dispatch({type: FETCH_NOTES, payload: response.data});
+			dispatch({ type: FETCH_NOTES, payload: response.data });
 		})
 		.catch(err => {
-			dispatch({type: ERROR, payload: err})
+			dispatch({ type: ERROR, payload: err })
 		});
 	};
 };
